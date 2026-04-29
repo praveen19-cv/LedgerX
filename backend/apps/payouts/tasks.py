@@ -143,6 +143,10 @@ def _simulate_bank_processing(payout_id):
         )
         return
 
+    if payout.amount_paise == 77700:  # ₹777.00 triggers forced stuck state
+        logger.info("Payout %s forced STUCK via magic amount ₹777.00", payout_id)
+        return
+
     roll = random.random()
 
     if roll < 0.70:  # 70% success
@@ -166,7 +170,7 @@ def recover_stuck_payouts():
     Uses exponential backoff: wait = 2^retry_count * base_seconds
     """
     max_retries = getattr(settings, "PAYOUT_MAX_RETRIES", 3)
-    stuck_threshold_seconds = getattr(settings, "PAYOUT_STUCK_THRESHOLD_SECONDS", 30)
+    stuck_threshold_seconds = getattr(settings, "PAYOUT_STUCK_THRESHOLD_SECONDS", 10)
 
     threshold_time = timezone.now() - timedelta(seconds=stuck_threshold_seconds)
 
