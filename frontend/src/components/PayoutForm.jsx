@@ -39,9 +39,8 @@ export default function PayoutForm({ merchant, onSuccess }) {
       setAmountRupees('')
       onSuccess?.()
     } catch (err) {
-      const msg =
-        err?.data?.error ||
-        (typeof err?.data?.error === 'object' ? JSON.stringify(err.data.error) : 'Request failed')
+      const errorData = err?.data?.error;
+      const msg = typeof errorData === 'object' ? JSON.stringify(errorData) : (errorData || 'Request failed');
       toast.error(msg)
     } finally {
       setSubmitting(false)
