@@ -1,0 +1,65 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+venv/
+ENV/
+env.bak/
+venv.bak/
+db.sqlite3
+db.sqlite3-journal
+.env
+
+# Node / React
+node_modules/
+dist/
+build/
+.pnp
+.pnp.js
+coverage/
+.next/
+out/
+.nuxt
+.vuepress/dist
+.serverless/
+.npm
+.eslintcache
+.stylelintcache
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Ignore Docker volumes if mounted locally
+postgres_data/
+
+# AI Context Files
+context/
