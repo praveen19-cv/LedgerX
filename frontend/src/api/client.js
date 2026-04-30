@@ -1,4 +1,6 @@
+// frontend/src/api/client.js
 const BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1'
+console.log('API Base URL:', BASE_URL); // This will show in your browser console
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {
